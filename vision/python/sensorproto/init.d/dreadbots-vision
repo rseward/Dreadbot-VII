@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Script to initialize Dreadbot vision on boot up
+
+method=$1
+case $method in
+
+start)
+  su -c /home/pi/vision-start.sh pi
+  ;;
+
+stop)
+  killall -v -u pi python
+  sleep 2
+  killall -v -9 -u pi python
+  ;;
+
+esac
